@@ -90,3 +90,10 @@ probiotic-ai-framework/
     ├── supplementary_data/ # Additional analysis results
     ├── benchmarks/         # Performance comparison data
     └── validation_results/ # Experimental confirmation data
+    [Supplementary Table S5.odt](https://github.com/user-attachments/files/28528373/Supplementary.Table.S5.odt)
+[Supplementary Table S4..odt](https://github.com/user-attachments/files/28528325/Supplementary.Table.S4.o[Supplementary Table S6.odt](https://github.com/user-attachments/files/28528479/Supplementary.Table.S6.odt)
+dt)
+[3.Supplementary Table S3..docx](https://github.com/user-attachments/files/28528299/3.Supplementary.Table.S3.docx)
+[2. Supplementary Table S2.docx](https://github.com/user-attachments/files/28528291/2.Supplementary.Table.S2.docx)
+[AI-Powered-Discovery-of-Novel-Probiotic-Gene-Modules_-Predicting-Functional-Impact-on-Food-Matrix-and-Human-Health--Abstract--As-the-exploration-of-probiotic-gene-modules-advances,-it-becomes-increasingly-cruc (1).xlsx](https://github.com/user-attachments/files/28528285/AI-Powered-Discovery-of-Novel-Probiotic-Gene-Modules_-Predicting-Functional-Impact-on-Food-Matrix-and-Human-Health--Abstract--As-the-exploration-of-probiotic-gene-modules-advances.-it-becomes-increasingly-cruc.1.xlsx)
+
