@@ -1,99 +1,88 @@
 probiotic-ai-framework/
-├── README.md                     # Comprehensive overview and quick start
-├── LICENSE                       # MIT license terms
-├── CITATION.cff                  # Citation metadata (CFF format)
-├── INSTALL.md                    # Detailed installation instructions
-├── CHANGELOG.md                  # Version history and updates
-├── CODE_OF_CONDUCT.md           # Community guidelines
-├── CONTRIBUTING.md              # Contribution instructions
+│
+├── pyproject.toml
+├── README.md
+├── LICENSE
+├── CITATION.cff
+├── INSTALL.md
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── MANUSCRIPT.md
+│
 ├── .github/
-│   ├── workflows/               # CI/CD automation (GitHub Actions)
-│   ├── ISSUE_TEMPLATE.md       # Standardized bug reports
-│   ├── PULL_REQUEST_TEMPLATE.md # PR guidelines
-│   └── FUNDING.yml             # Funding information
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   └── test.yml
+│   │
+│   ├── ISSUE_TEMPLATE.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── FUNDING.yml
+│
 ├── docs/
-│   ├── installation.md         # Step-by-step setup guide
-│   ├── user_guide.md          # Comprehensive usage documentation
-│   ├── api_reference.md       # Complete function documentation
-│   ├── tutorials/             # Jupyter notebook tutorials
-│   ├── examples/              # Example analyses and use cases
-│   ├── troubleshooting.md     # Common issues and solutions
-│   └── performance_guide.md   # Optimization recommendations
+│   ├── installation.md
+│   ├── user_guide.md
+│   ├── api_reference.md
+│   ├── troubleshooting.md
+│   ├── performance_guide.md
+│   └── tutorials/
+│
 ├── src/
-│   ├── probiotic_discovery/   # Main package
-│   │   ├── __init__.py
-│   │   ├── annotation/        # Genome annotation pipeline
-│   │   │   ├── prokka_wrapper.py
-│   │   │   ├── rast_integration.py
-│   │   │   ├── kegg_mapper.py
-│   │   │   └── consensus_annotation.py
-│   │   ├── module_detection/  # Gene module identification
-│   │   │   ├── module_finder.py
-│   │   │   ├── cooccurrence_analysis.py
-│   │   │   └── validation.py
-│   │   ├── protein_analysis/  # PLM-based prediction
-│   │   │   ├── esm2_embeddings.py
-│   │   │   ├── prott5_analysis.py
-│   │   │   ├── functional_prediction.py
-│   │   │   └── benchmarking.py
-│   │   ├── metabolic_modeling/# GEM reconstruction and simulation
-│   │   │   ├── model_builder.py
-│   │   │   ├── matrix_constraints.py
-│   │   │   ├── flux_analysis.py
-│   │   │   └── validation.py
-│   │   ├── ai_clustering/     # Machine learning pipeline
-│   │   │   ├── graph_neural_networks.py
-│   │   │   ├── variational_autoencoders.py
-│   │   │   ├── transformer_attention.py
-│   │   │   └── umap_visualization.py
-│   │   ├── prediction/        # Host-interaction prediction
-│   │   │   ├── feature_engineering.py
-│   │   │   ├── ensemble_models.py
-│   │   │   ├── cross_validation.py
-│   │   │   └── strain_ranking.py
-│   │   ├── visualization/     # Plotting and reporting
-│   │   │   ├── figure_generation.py
-│   │   │   ├── interactive_plots.py
-│   │   │   └── report_builder.py
-│   │   └── utils/            # Utility functions
-│   │       ├── data_processing.py
-│   │       ├── file_io.py
-│   │       ├── statistics.py
-│   │       └── logging_config.py
+│   └── probiotic_discovery/
+│       │
+│       ├── __init__.py
+│       ├── cli.py                          # (2) CLI ENTRY POINT
+│       │
+│       ├── core/
+│       │   └── pipeline.py                # (1) MAIN PIPELINE
+│       │
+│       ├── annotation/
+│       │   ├── prokka_wrapper.py         # (3) GENOME ANNOTATION
+│       │   ├── kegg_mapper.py
+│       │
+│       ├── protein_analysis/
+│       │   ├── esm2_embeddings.py        # (3) PROTEIN EMBEDDINGS
+│       │   ├── functional_prediction.py
+│       │   ├── benchmarking.py           # (4) VALIDATION
+│       │
+│       ├── module_detection/
+│       │   ├── module_finder.py          # (3) GENE MODULE DETECTION
+│       │   ├── cooccurrence_analysis.py
+│       │
+│       ├── metabolic_modeling/
+│       │   ├── model_builder.py          # (3) METABOLIC VALIDATION
+│       │   ├── flux_analysis.py
+│       │
+│       ├── prediction/
+│       │   ├── feature_engineering.py    # (3) ML PIPELINE
+│       │   ├── ensemble_models.py
+│       │   ├── strain_ranking.py
+│       │   ├── cross_validation.py       # (4) VALIDATION
+│       │
+│       ├── visualization/
+│       │   ├── figure_generation.py
+│       │   └── report_builder.py
+│       │
+│       └── utils/
+│           ├── data_processing.py        # (5) UTILITIES
+│           ├── file_io.py
+│           └── logging_config.py
+│
 ├── tests/
-│   ├── unit_tests/           # Individual function tests
-│   ├── integration_tests/    # End-to-end pipeline tests
-│   ├── performance_tests/    # Speed and memory benchmarks
-│   └── test_data/           # Small datasets for testing
+│   ├── test_pipeline.py
+│   ├── test_prediction.py
+│   └── test_imports.py
+│
 ├── data/
-│   ├── example_genomes/      # Sample input files
-│   ├── reference_databases/  # Curated annotation databases
-│   ├── validation_sets/      # Benchmark datasets
-│   └── metadata/            # Dataset descriptions
-├── models/
-│   ├── trained_classifiers/  # Pre-trained ML models
-│   ├── protein_embeddings/   # PLM model weights
-│   ├── metabolic_templates/  # GEM templates
-│   └── model_documentation/ # Model descriptions and performance
-├── workflows/
-│   ├── snakemake/           # Snakemake workflow files
-│   ├── nextflow/            # Nextflow pipeline
-│   ├── cwl/                 # Common Workflow Language
-│   └── docker/              # Containerization files
-├── environment/
-│   ├── requirements.txt     # Python dependencies
-│   ├── conda_env.yml       # Conda environment
-│   ├── Dockerfile          # Docker container
-│   └── singularity.def    # Singularity container
-└── results/
-    ├── manuscript_figures/  # Reproducible figure generation
-    ├── supplementary_data/ # Additional analysis results
-    ├── benchmarks/         # Performance comparison data
-    └── validation_results/ # Experimental confirmation data
-    [Supplementary Table S5.odt](https://github.com/user-attachments/files/28528373/Supplementary.Table.S5.odt)
-[Supplementary Table S4..odt](https://github.com/user-attachments/files/28528325/Supplementary.Table.S4.o[Supplementary Table S6.odt](https://github.com/user-attachments/files/28528479/Supplementary.Table.S6.odt)
-dt)
-[3.Supplementary Table S3..docx](https://github.com/user-attachments/files/28528299/3.Supplementary.Table.S3.docx)
-[2. Supplementary Table S2.docx](https://github.com/user-attachments/files/28528291/2.Supplementary.Table.S2.docx)
-[AI-Powered-Discovery-of-Novel-Probiotic-Gene-Modules_-Predicting-Functional-Impact-on-Food-Matrix-and-Human-Health--Abstract--As-the-exploration-of-probiotic-gene-modules-advances,-it-becomes-increasingly-cruc (1).xlsx](https://github.com/user-attachments/files/28528285/AI-Powered-Discovery-of-Novel-Probiotic-Gene-Modules_-Predicting-Functional-Impact-on-Food-Matrix-and-Human-Health--Abstract--As-the-exploration-of-probiotic-gene-modules-advances.-it-becomes-increasingly-cruc.1.xlsx)
-
+│   ├── example_genomes/
+│   ├── reference_databases/
+│   └── validation_sets/
+│
+├── results/
+│   ├── example_run/
+│   └── validation/
+│
+└── environment/
+    ├── requirements.txt
+    ├── conda_env.yml
+    └── Dockerfile
